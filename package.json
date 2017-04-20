@@ -1,0 +1,93 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-smart-barcode",
+        "scope": null,
+        "escapedName": "react-native-smart-barcode",
+        "name": "react-native-smart-barcode",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/arespan/programe/Projects/TextDemo/demo"
+    ]
+  ],
+  "_from": "react-native-smart-barcode@latest",
+  "_id": "react-native-smart-barcode@1.0.6",
+  "_inCache": true,
+  "_location": "/react-native-smart-barcode",
+  "_nodeVersion": "6.0.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/react-native-smart-barcode-1.0.6.tgz_1486301088246_0.6981102153658867"
+  },
+  "_npmUser": {
+    "name": "cyqresig",
+    "email": "moonsunfall@aliyun.com"
+  },
+  "_npmVersion": "3.8.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-smart-barcode",
+    "scope": null,
+    "escapedName": "react-native-smart-barcode",
+    "name": "react-native-smart-barcode",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-smart-barcode/-/react-native-smart-barcode-1.0.6.tgz",
+  "_shasum": "7411586c687ed25b6adf456f949b39699c63db5e",
+  "_shrinkwrap": null,
+  "_spec": "react-native-smart-barcode",
+  "_where": "/Users/arespan/programe/Projects/TextDemo/demo",
+  "author": {
+    "name": "HISAME SHIZUMARU"
+  },
+  "bugs": {
+    "url": "https://github.com/react-native-component/react-native-smart-barcode/issues"
+  },
+  "dependencies": {},
+  "description": "A smart barcode scanner component for React Native app",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "7411586c687ed25b6adf456f949b39699c63db5e",
+    "tarball": "https://registry.npmjs.org/react-native-smart-barcode/-/react-native-smart-barcode-1.0.6.tgz"
+  },
+  "gitHead": "e46a8b5cadc3e18dc246f3979f893366fead1a0e",
+  "homepage": "https://github.com/react-native-component/react-native-smart-barcode#readme",
+  "keywords": [
+    "react-native",
+    "smart",
+    "barcode",
+    "scan"
+  ],
+  "license": "MIT",
+  "main": "Barcode.js",
+  "maintainers": [
+    {
+      "name": "cyqresig",
+      "email": "moonsunfall@aliyun.com"
+    }
+  ],
+  "name": "react-native-smart-barcode",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": ">=0.40.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/react-native-component/react-native-smart-barcode.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.6"
+}
