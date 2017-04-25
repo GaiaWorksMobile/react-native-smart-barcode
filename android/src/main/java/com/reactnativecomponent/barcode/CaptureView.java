@@ -15,14 +15,22 @@ import android.hardware.Camera;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
+import android.text.TextPaint;
 import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.facebook.react.uimanager.ThemedReactContext;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.reactnativecomponent.barcode.camera.CameraManager;
@@ -94,50 +102,15 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
     SurfaceTexture surfaceTexture;
     boolean autoStart = true;//是否自动启动扫描
     String ResultStr="";
+    private ThemedReactContext context;
+
+    private boolean isShowAC;
+    private String title;
 
 
-
-
-   /* private final VerticalSeekBar.OnSeekBarChangeListener onSeekBarChangeListener = new VerticalSeekBar.OnSeekBarChangeListener() {
-
-        @Override
-        public void onProgressChanged(VerticalSeekBar seekBar, int progress,
-                                      boolean fromUser) {
-            // TODO Auto-generated method stub
-
-            //setZoom(progress);
-
-            mHandler.removeCallbacksAndMessages(progressBar);
-            //ZOOM模式下 在结束四秒后隐藏seekbar 设置token为mZoomSeekBar用以在连续点击时移除前一个定时任务
-            mHandler.postAtTime(new Runnable() {
-
-                @Override
-                public void run() {
-                    // TODO Auto-generated method stub
-//                    progressBar.setVisibility(View.GONE);
-                    if (popupWindow.isShowing()) {
-                        popupWindow.dismiss();
-                    }
-                }
-            }, progressBar, SystemClock.uptimeMillis() + 4000);
-        }
-
-        @Override
-        public void onStartTrackingTouch(VerticalSeekBar VerticalSeekBar) {
-
-        }
-
-        @Override
-        public void onStopTrackingTouch(VerticalSeekBar VerticalSeekBar) {
-
-        }
-
-
-    };*/
-
-
-    public CaptureView(Activity activity, Context context) {
+    public CaptureView(Activity activity, ThemedReactContext context) {
         super(context);
+        this.context = context;
         this.activity = activity;
         CameraManager.init(activity.getApplication());
         param = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -147,9 +120,6 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         DisplayMetrics dm = resources.getDisplayMetrics();
         ScreenWidth = dm.widthPixels;
         ScreenHeight = dm.heightPixels;
-
-        //  x=screenResolution.x;
-        // y=screenResolution.y;
 
         hasSurface = false;
         this.setOnTouchListener(new TouchListener());
@@ -183,17 +153,6 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         CameraManager.get().setFocusTime(focusTime);
 
     }
-/*
-    @Override
-    public void onViewAdded(View child) {
-        if (this.viewfinderView == child) return;
-        // remove and readd view to make sure it is in the back.
-        // @TODO figure out why there was a z order issue in the first place and fix accordingly.
-        if (viewfinderView != null) {
-            this.removeView(this.viewfinderView);
-            this.addView(this.viewfinderView);
-        }
-    }*/
     
     /**
      * Activity onResume后调用view的onAttachedToWindow
@@ -211,6 +170,38 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         if (mHandler == null) {
             mHandler = new Handler();
         }
+        FrameLayout frameLayout = new FrameLayout(activity);
+        frameLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 80));
+        LinearLayout linearLayout = new LinearLayout(activity);
+        linearLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 80));
+        linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+        TextView tv = new TextView(activity);
+        tv.setLayoutParams(new ViewGroup.LayoutParams(18, 80));
+        linearLayout.addView(tv);
+        ImageView imageView = new ImageView(activity);
+        imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 80));
+        imageView.setImageDrawable(getResources().getDrawable(R.drawable.back_white));
+        imageView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("SCAN_LEFT_ARROW_CLICK", true);
+            }
+        });
+        linearLayout.addView(imageView);
+        TextView textView = new TextView(activity);
+        textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 80));
+        textView.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
+        textView.setText(title);
+        textView.setTextColor(Color.WHITE);
+        textView.setTextSize(19);
+        TextPaint textPaint = textView.getPaint();
+        textPaint.setFakeBoldText(true);
+
+        frameLayout.addView(linearLayout);
+        frameLayout.addView(textView);
+
+
+
         textureView = new TextureView(activity);
         textureView.setLayoutParams(param);
         textureView.getLayoutParams().height = ScreenHeight;
@@ -233,82 +224,23 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         viewfinderView.setMIDDLE_LINE_WIDTH(this.MIDDLE_LINE_WIDTH);
         this.addView(viewfinderView);
 
+        if (isShowAC) {
+            this.addView(frameLayout);
+        }
+
         linearGradientView = new LinearGradientView(activity, activity);
         linearGradientView.setLayoutParams(param);
         linearGradientView.setFrameColor(CORNER_COLOR);
 
-
-//        decodeFormats = null;
         characterSet = null;
-
-
 
         vibrate = true;
 
         setPlayBeep(true);
-//        initProgressBar();
-//        progressBar = new VerticalSeekBar(activity);
-      /*  popupWindowContent = View.inflate(activity, R.layout.seekbar_layout, null);
-        progressBar = (VerticalSeekBar) popupWindowContent.findViewById(R.id.verticalSeekBar);
-        // 给progressbar准备一个FrameLayout的LayoutParams
-
-
-        progressBar.setIndeterminate(false);
-        progressBar.setThumb(null);*/
-//        progressBar.setProgressDrawable(getResources().getDrawable(android.R.drawable.progress_horizontal));
-
-
-//
-
-      /*
-       //渐变色drawable
-       int[] mColors=  new int[]{Color.WHITE,Color.BLUE};
-        GradientDrawable drawable=new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,mColors);
-        drawable.setGradientType(GradientDrawable.LINEAR_GRADIENT);
-        drawable.setCornerRadius(15);
-        drawable.setStroke(10,-1);
-        */
-
-/*        LayerDrawable progressDrawable = (LayerDrawable) progressBar
-                .getProgressDrawable();
-        Drawable[] outDrawables = new Drawable[progressDrawable
-                .getNumberOfLayers()];
-        for (int i = 0; i < progressDrawable.getNumberOfLayers(); i++) {
-            switch (progressDrawable.getId(i)) {
-                case android.R.id.background:// 设置进度条背景
-                    outDrawables[i] = getResources().getDrawable(R.drawable.seek_bkg);
-                    break;
-                case android.R.id.secondaryProgress:// 设置二级进度条
-                    outDrawables[i] = getResources().getDrawable(R.drawable.seek);
-                    break;
-                case android.R.id.progress:// 设置进度条
-                    ClipDrawable oidDrawable = (ClipDrawable) progressDrawable
-                            .getDrawable(i);
-                    Drawable drawable=getResources().getDrawable(R.drawable.seek);
-                    ClipDrawable proDrawable = new ClipDrawable(drawable,
-                            Gravity.LEFT, ClipDrawable.HORIZONTAL);
-                    proDrawable.setLevel(oidDrawable.getLevel());
-                    outDrawables[i] = proDrawable;
-                    break;
-                default:
-                    break;
-            }
-        }
-        progressDrawable = new LayerDrawable(outDrawables);
-        progressBar.setProgressDrawable(progressDrawable);*/
-
-
-        //        progressBar.setBackgroundResource(R.drawable.seek_bkg);
-//        progressBar.setSecondaryProgress(R.drawable.seek);
-//        progressBar.setThumb(getResources().getDrawable(R.drawable.seek_thumb));
-//        progressBar.setMinimumHeight(20);
-
 
         //获取当前照相机支持的最大缩放级别，值小于0表示不支持缩放。当支持缩放时，加入拖动条。
         int maxZoom = getMaxZoom();
         if (maxZoom > 0) {
-//            progressBar.setMax(maxZoom);
-//            progressBar.setOnSeekBarChangeListener(onSeekBarChangeListener);
         }
 
     }
@@ -324,31 +256,6 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
 
     private void initProgressBar() {
-/*        if (progressBar != null) {
-            LayoutParams progresslp = new LayoutParams(
-                    120,
-                    MAX_FRAME_HEIGHT);
-            // 设置对其方式为：屏幕居中
-            int leftMargin = (width / 2) + cX + MAX_FRAME_WIDTH / 2;
-            int topMargin = height / 2 + cY / 2 - MAX_FRAME_HEIGHT;
-//        progresslp.gravity = Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL;
-//            progressBar.setLayoutParams(param);
-
-            // 创建PopupWindow实例,200,LayoutParams.MATCH_PARENT分别是宽度和高度
-            popupWindow = new PopupWindow(CaptureView.this);
-*//*            popupWindow.setWidth((int) (20 * density));
-            popupWindow.setHeight(MAX_FRAME_HEIGHT-CORNER_WIDTH*2);
-            popupWindow.setContentView(popupWindowContent);*//*
-
-            popupWindow.setWidth(MAX_FRAME_WIDTH);
-            popupWindow.setHeight(30);
-            popupWindow.setContentView(linearGradientView);
-
-            popupWindow.setBackgroundDrawable(new BitmapDrawable());
-            popupWindow.setFocusable(false);
-            popupWindow.setOutsideTouchable(false);
-
-        }*/
     }
 
 
@@ -363,11 +270,9 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
             CameraManager.get().startPreview();
 
         }
-//        decodeFormats = null;
 
         handler = new CaptureActivityHandler(this, decodeFormats,
                 characterSet);
-//        handler.restartPreviewAndDecode();
     }
 
     public void stopScan() {
@@ -430,31 +335,12 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
     public void handleDecode(Result obj, Bitmap barcode) {
 
-//        viewfinderView.drawResultBitmap(barcode);//画结果图片
-
         if (obj != null&& this.decodeFlag) {
             playBeepSoundAndVibrate();
             String str = obj.getText();//获得扫码的结果
-        /*
-        activity.getCapturePackage().mModuleInstance.sendMsgToRn(str); //发送到RN侧*/
             onEvChangeListener.getQRCodeResult(str,obj.getBarcodeFormat()); //观察者模式发送到RN侧
         }
         stopQR();
-
-
-//        viewfinderView.drawResultBitmap(null);//清除结果图片
-
-        /*
-        try {
-            Thread.sleep(sleepTime);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        initCamera(textureView.getHolder());
-        if (handler != null) {
-            handler.restartPreviewAndDecode();
-        }*/
-
     }
 
 
@@ -633,6 +519,14 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
     public void setText(String text) {
         Text = text;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setActionBarShow(boolean isShow) {
+        this.isShowAC = isShow;
     }
 
     /**

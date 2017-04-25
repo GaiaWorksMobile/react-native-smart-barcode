@@ -60,7 +60,7 @@ public final class ViewfinderView extends View
     /**
      * 四个蓝色边角对应的宽度
      */
-    public int CORNER_WIDTH = 3;
+    public int CORNER_WIDTH = 1;
     /**
      * 扫描框中的中间线的宽度
      */
@@ -74,7 +74,7 @@ public final class ViewfinderView extends View
     /**
      * 中间那条线每次刷新移动的距离
      */
-    private static int SPEEN_DISTANCE = 3;
+    private static int SPEEN_DISTANCE = 6;
 
     /**
      * 手机的屏幕密度
@@ -142,7 +142,7 @@ public final class ViewfinderView extends View
         super(context);
         density = context.getResources().getDisplayMetrics().density;
         //将像素转化成dp
-        ScreenRate = (int) (25 * density);
+        ScreenRate = (int) (15 * density);
 
         // Initialize these once for performance rather than calling them every time in onDraw().
         paint = new Paint();
@@ -211,30 +211,30 @@ public final class ViewfinderView extends View
             //画框架
             paint.setColor(Color.WHITE);
             //自己画（扫描框边上的角，共8个部分）
-            canvas.drawRect(frame.left - CORNER_WIDTH/2 - 10 , frame.top
-                    - CORNER_WIDTH /2 - 10, frame.left + ScreenRate - 10, frame.top
-                    + CORNER_WIDTH /2 - 10, paint);//左上角横线
-            canvas.drawRect(frame.left - CORNER_WIDTH/2  - 10, frame.top
-                    - CORNER_WIDTH/2 - 10, frame.left + CORNER_WIDTH/2 - 10,
-                    frame.top + ScreenRate - 10, paint);//左上角竖线
-            canvas.drawRect(frame.left - CORNER_WIDTH/2 - 10, frame.bottom
-                    - ScreenRate + 10, frame.left + CORNER_WIDTH/2 - 10, frame.bottom
-                    + CORNER_WIDTH/2 + 10, paint);//左下角竖线
-            canvas.drawRect(frame.left - CORNER_WIDTH/2 - 10, frame.bottom
-                    - CORNER_WIDTH/2 + 10, frame.left + ScreenRate - 10, frame.bottom
-                    + CORNER_WIDTH/2 + 10, paint);//左下角横线
-            canvas.drawRect(frame.right - ScreenRate + 10, frame.top - CORNER_WIDTH/2 - 10
-                    , frame.right + CORNER_WIDTH/2 + 10, frame.top
-                    + CORNER_WIDTH/2 - 10, paint);//右上横线
-            canvas.drawRect(frame.right - CORNER_WIDTH / 2 + 10, frame.top
-                    - CORNER_WIDTH / 2 - 10, frame.right + CORNER_WIDTH / 2 + 10,
-                    frame.top + ScreenRate - 10, paint);//右上竖线
-            canvas.drawRect(frame.right - CORNER_WIDTH/2 + 10, frame.bottom
-                    - ScreenRate + 10, frame.right + CORNER_WIDTH /2 + 10, frame.bottom
-                    + CORNER_WIDTH /2 + 10, paint);//右下竖线
-            canvas.drawRect(frame.right - ScreenRate + 10, frame.bottom
-                    - CORNER_WIDTH / 2 + 10, frame.right + CORNER_WIDTH / 2 + 10,
-                    frame.bottom + CORNER_WIDTH / 2 + 10, paint);
+            canvas.drawRect(frame.left - CORNER_WIDTH/2 - 5 , frame.top
+                    - CORNER_WIDTH /2 - 5, frame.left + ScreenRate - 5, frame.top
+                    + CORNER_WIDTH /2 - 5, paint);//左上角横线
+            canvas.drawRect(frame.left - CORNER_WIDTH/2  - 5, frame.top
+                    - CORNER_WIDTH/2 - 5, frame.left + CORNER_WIDTH/2 - 5,
+                    frame.top + ScreenRate - 5, paint);//左上角竖线
+            canvas.drawRect(frame.left - CORNER_WIDTH/2 - 5, frame.bottom
+                    - ScreenRate + 5, frame.left + CORNER_WIDTH/2 - 5, frame.bottom
+                    + CORNER_WIDTH/2 + 5, paint);//左下角竖线
+            canvas.drawRect(frame.left - CORNER_WIDTH/2 - 5, frame.bottom
+                    - CORNER_WIDTH/2 + 5, frame.left + ScreenRate - 5, frame.bottom
+                    + CORNER_WIDTH/2 + 5, paint);//左下角横线
+            canvas.drawRect(frame.right - ScreenRate + 5, frame.top - CORNER_WIDTH/2 - 5
+                    , frame.right + CORNER_WIDTH/2 + 5, frame.top
+                    + CORNER_WIDTH/2 - 5, paint);//右上横线
+            canvas.drawRect(frame.right - CORNER_WIDTH / 2 + 5, frame.top
+                    - CORNER_WIDTH / 2 - 5, frame.right + CORNER_WIDTH / 2 + 5,
+                    frame.top + ScreenRate - 5, paint);//右上竖线
+            canvas.drawRect(frame.right - CORNER_WIDTH/2 + 5, frame.bottom
+                    - ScreenRate + 5, frame.right + CORNER_WIDTH /2 + 5, frame.bottom
+                    + CORNER_WIDTH /2 + 5, paint);//右下竖线
+            canvas.drawRect(frame.right - ScreenRate + 5, frame.bottom
+                    - CORNER_WIDTH / 2 + 5, frame.right + CORNER_WIDTH / 2 + 5,
+                    frame.bottom + CORNER_WIDTH / 2 + 5, paint);
 
             //画中间移动的线 (int)(SPEEN_DISTANCE*density+0.5f)
             if(drawLine) {
@@ -267,11 +267,11 @@ public final class ViewfinderView extends View
             paint.setColor(Color.WHITE);
             paint.setTextSize(TEXT_SIZE * density);
             paint.setAlpha(0x40);
-            paint.setTypeface(Typeface.create("System", Typeface.BOLD));
+            // paint.setTypeface(Typeface.create("System", Typeface.BOLD));
             paint.setTextAlign(Paint.Align.CENTER);//文字居中,X,Y 对应文字坐标中心
             canvas.drawText(
                     ShowText,
-                    width/2, frame.bottom + TEXT_PADDING_TOP * density,
+                    width/2, frame.top - 50,
                     paint);
 
             Collection<ResultPoint> currentPossible = possibleResultPoints;

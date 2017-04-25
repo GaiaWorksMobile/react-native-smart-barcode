@@ -54,6 +54,22 @@ public class RCTCaptureManager extends ViewGroupManager<CaptureView> {
         view.setDecodeFormats(result);
 
     }
+
+    @ReactProp(name = "scanDesc")
+    public void setScanDesc(CaptureView view, String scanDesc) {
+        view.setText(scanDesc);
+    }
+
+    @ReactProp(name = "showActionBar")
+    public void setShowActionBar(CaptureView view, boolean showActionBar) {
+        view.setActionBarShow(showActionBar);
+    }
+
+    @ReactProp(name = "actionBarTitle")
+    public void setActionBarTitle(CaptureView view, String actionBarTitle) {
+        view.setTitle(actionBarTitle);
+    }
+
     @ReactProp(name = "scannerRectLeft", defaultInt = 0)
     public void setCX(CaptureView view, int cX) {
         view.setcX((int) (cX* density + 0.5f));

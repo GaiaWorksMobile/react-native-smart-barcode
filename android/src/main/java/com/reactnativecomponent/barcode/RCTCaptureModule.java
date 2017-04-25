@@ -33,12 +33,6 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
         return "CaptureModule";
     }
 
-//    public void sendMsgToRn(String msg) {
-//        //将消息msg发送给RN侧
-//        mContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("AndroidToRNMessage", msg);
-//
-//    }
-
 
 
     @Nullable
@@ -53,7 +47,6 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
                     {
                         put("upce", BarcodeFormat.UPC_E.toString());
                         put("code39", BarcodeFormat.CODE_39.toString());
-//                        put("code39mod43",BarcodeFormat. );
                         put("ean13",BarcodeFormat.EAN_13.toString() );
                         put("ean8",BarcodeFormat.EAN_8.toString() );
                         put("code93", BarcodeFormat.CODE_93.toString());
@@ -61,12 +54,9 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
                         put("pdf417",BarcodeFormat.PDF_417.toString() );
                         put("qr",BarcodeFormat.QR_CODE.toString() );
                         put("aztec", BarcodeFormat.AZTEC.toString());
-//                        put("interleaved2of5", BarcodeFormat.);
                         put("itf14",BarcodeFormat.ITF.toString());
                         put("datamatrix", BarcodeFormat.DATA_MATRIX.toString());
                     }
-
-
                 });
             }
         });
