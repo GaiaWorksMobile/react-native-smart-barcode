@@ -106,6 +106,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
     private boolean isShowAC;
     private String title;
+    private String firstScanDesc;
 
 
     public CaptureView(Activity activity, ThemedReactContext context) {
@@ -217,6 +218,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         viewfinderView = new ViewfinderView(activity, scanTime, CORNER_COLOR);
         viewfinderView.CORNER_WIDTH = CORNER_WIDTH;
         viewfinderView.ShowText = Text;
+        viewfinderView.showFirstText = firstScanDesc;
         viewfinderView.setLayoutParams(param);
         viewfinderView.getLayoutParams().height = ScreenHeight;
         viewfinderView.getLayoutParams().width = ScreenWidth;
@@ -519,6 +521,10 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
     public void setText(String text) {
         Text = text;
+    }
+
+    public void setFirstScanDesc(String text) {
+        firstScanDesc = text;
     }
 
     public void setTitle(String title) {

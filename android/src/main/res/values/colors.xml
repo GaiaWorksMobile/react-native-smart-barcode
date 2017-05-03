@@ -10,6 +10,7 @@
   <color name="viewfinder_frame">#ff4EEE94</color><!-- #ff0000ff -->
   <color name="backgroud">#ffffffff</color>
   <color name="title_tv_color">#ffffffff</color>
+  <color name="first_scan_desc">#14BE4B</color>
   
   
 </resources>

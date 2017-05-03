@@ -26,6 +26,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.view.View;
 
@@ -86,6 +87,10 @@ public final class ViewfinderView extends View
     private static final int TEXT_SIZE = 16;
 
     public String ShowText;
+    /**
+     * 扫码考勤第一个提示语
+     */
+    public String showFirstText;
     /**
      * 字体距离扫描框下面的距离
      */
@@ -243,35 +248,46 @@ public final class ViewfinderView extends View
                     slideTop = frame.top + CORNER_WIDTH;
                 }
                 //自己画
-                paintLine.setColor(frameColor);
+//                paintLine.setColor(frameColor);
+//
+//                Shader mShader = new LinearGradient(frame.left + CORNER_WIDTH, slideTop, frame.right
+//                        - CORNER_WIDTH, slideTop + MIDDLE_LINE_WIDTH,new int[] {Color.TRANSPARENT,frameBaseColor,frameColor,frameColor,frameColor,frameColor,frameColor,frameBaseColor,Color.TRANSPARENT},null, Shader.TileMode.CLAMP);
+//            //新建一个线性渐变，前两个参数是渐变开始的点坐标，第三四个参数是渐变结束的点的坐标。
+//            // 连接这2个点就拉出一条渐变线了，玩过PS的都懂。然后那个数组是渐变的颜色。
+//                // 下一个参数是渐变颜色的分布，如果为空，每个颜色就是均匀分布的。
+//            // 最后是模式，这里设置的是Clamp渐变
+//                paintLine.setShader(mShader);
+//                canvas.drawRect(frame.left + CORNER_WIDTH, slideTop, frame.right
+//                        - CORNER_WIDTH, slideTop + MIDDLE_LINE_WIDTH, paintLine);
+                //用图片
+                Rect lineRect = new Rect();
+                lineRect.left = frame.left;
+                lineRect.right = frame.right;
+                lineRect.top = slideTop;
+                lineRect.bottom = slideTop + MIDDLE_LINE_PADDING;
+                canvas.drawBitmap(((BitmapDrawable)(getResources().getDrawable(R.drawable.qrcode_scan_line))).getBitmap(), null, lineRect, paint);
 
-                Shader mShader = new LinearGradient(frame.left + CORNER_WIDTH, slideTop, frame.right
-                        - CORNER_WIDTH, slideTop + MIDDLE_LINE_WIDTH,new int[] {Color.TRANSPARENT,frameBaseColor,frameColor,frameColor,frameColor,frameColor,frameColor,frameBaseColor,Color.TRANSPARENT},null, Shader.TileMode.CLAMP);
-            //新建一个线性渐变，前两个参数是渐变开始的点坐标，第三四个参数是渐变结束的点的坐标。
-            // 连接这2个点就拉出一条渐变线了，玩过PS的都懂。然后那个数组是渐变的颜色。
-                // 下一个参数是渐变颜色的分布，如果为空，每个颜色就是均匀分布的。
-            // 最后是模式，这里设置的是Clamp渐变
-                paintLine.setShader(mShader);
-                canvas.drawRect(frame.left + CORNER_WIDTH, slideTop, frame.right
-                        - CORNER_WIDTH, slideTop + MIDDLE_LINE_WIDTH, paintLine);
             }
-            //用图片
-            //      Rect lineRect = new Rect();
-            //		lineRect.left = frame.left;
-            //		lineRect.right = frame.right;
-            //		lineRect.top = slideTop;
-            //		lineRect.bottom = slideTop + MIDDLE_LINE_PADDING;
-            //		canvas.drawBitmap(((BitmapDrawable)(getResources().getDrawable(R.drawable.qrcode_scan_line))).getBitmap(), null, lineRect, paint);
-
             //画扫描框下面的字
+            // 第一个提示语
+            paint.setColor(getResources().getColor(R.color.first_scan_desc));
+            paint.setTextSize(TEXT_SIZE * density);
+            paint.setAlpha(221);
+            // paint.setTypeface(Typeface.create("System", Typeface.BOLD));
+            paint.setTextAlign(Paint.Align.CENTER);//文字居中,X,Y 对应文字坐标中心
+            canvas.drawText(
+                    showFirstText,
+                    width/2, frame.top - 180,
+                    paint);
+
             paint.setColor(Color.WHITE);
             paint.setTextSize(TEXT_SIZE * density);
-            paint.setAlpha(0x40);
+            paint.setAlpha(221);
             // paint.setTypeface(Typeface.create("System", Typeface.BOLD));
             paint.setTextAlign(Paint.Align.CENTER);//文字居中,X,Y 对应文字坐标中心
             canvas.drawText(
                     ShowText,
-                    width/2, frame.top - 50,
+                    width/2, frame.top - 80,
                     paint);
 
             Collection<ResultPoint> currentPossible = possibleResultPoints;

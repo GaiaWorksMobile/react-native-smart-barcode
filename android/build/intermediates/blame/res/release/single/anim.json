@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/catalyst_push_up_in.xml",
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/catalyst_push_up_in.xml"
     },
@@ -12,12 +8,40 @@
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/catalyst_push_up_out.xml"
     },
     {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_popup_exit.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_popup_exit.xml"
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_in_top.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/slide_up.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/slide_up.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_popup_exit.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_fade_out.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/slide_down.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/slide_down.xml"
     },
     {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/catalyst_push_up_in.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/catalyst_push_up_in.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/fade_in.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/fade_in.xml"
     },
     {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
@@ -28,64 +52,32 @@
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_popup_exit.xml"
     },
     {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_in_top.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_slide_in_top.xml"
-    },
-    {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_popup_enter.xml"
     },
     {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/fade_out.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/fade_out.xml"
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_popup_enter.xml"
     },
     {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/fade_out.xml",
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/fade_out.xml"
     },
     {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/slide_up.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/slide_up.xml"
-    },
-    {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/catalyst_push_up_out.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/catalyst_push_up_out.xml"
-    },
-    {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_fade_out.xml",
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_slide_out_top.xml"
     },
     {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_grow_fade_in_from_bottom.xml",
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/catalyst_push_up_in.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/catalyst_push_up_in.xml"
-    },
-    {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/slide_down.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/slide_down.xml"
-    },
-    {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_slide_out_bottom.xml"
-    },
-    {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/slide_down.xml",
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/slide_down.xml"
-    },
-    {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_fade_in.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_fade_in.xml"
-    },
-    {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_grow_fade_in_from_bottom.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_grow_fade_in_from_bottom.xml"
-    },
-    {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_slide_out_top.xml"
     },
     {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_in_top.xml",
@@ -100,20 +92,16 @@
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_slide_in_bottom.xml"
     },
     {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_popup_enter.xml"
-    },
-    {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/slide_up.xml",
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/slide_up.xml"
     },
     {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_in_bottom.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_slide_in_bottom.xml"
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_fade_out.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_fade_out.xml"
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_slide_out_bottom.xml"
     },
     {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/fade_in.xml",
@@ -124,7 +112,19 @@
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_shrink_fade_out_from_bottom.xml"
     },
     {
-        "merged": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/fade_in.xml",
-        "source": "/Users/arespan/programe/Projects/TextDemo/demo/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/fade_in.xml"
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/fade_out.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/fade_out.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/catalyst_push_up_out.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.facebook.react/react-native/0.43.3/res/anim/catalyst_push_up_out.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/anim/abc_fade_in.xml",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/res/anim/abc_fade_in.xml"
     }
 ]
