@@ -32,6 +32,7 @@ export default class Barcode extends Component {
         scannerLineInterval: 1000,
         scannerRectCornerColor: `#09BB0D`,
         actionBarTitle: '扫码登录',
+        firstScanDesc: '请将扫码框对准二维码',
         scanDesc: '对准HR ONE网页端二维码到框内即可扫描登录',
         showActionBar: true,
     }
@@ -47,6 +48,7 @@ export default class Barcode extends Component {
         scannerLineInterval: PropTypes.number,
         scannerRectCornerColor: PropTypes.string,
         actionBarTitle: PropTypes.string,
+        firstScanDesc: PropTypes.string,
         scanDesc: PropTypes.string,
         showActionBar: PropTypes.bool,
     }
