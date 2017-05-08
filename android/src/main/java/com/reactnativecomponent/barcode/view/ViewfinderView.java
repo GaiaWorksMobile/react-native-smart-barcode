@@ -33,10 +33,13 @@ import android.view.View;
 import com.google.zxing.ResultPoint;
 import com.reactnativecomponent.barcode.R;
 import com.reactnativecomponent.barcode.camera.CameraManager;
+import com.reactnativecomponent.barcode.utils.LangUtils;
 
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * This view is overlaid on top of the camera preview. It adds the viewfinder rectangle and partial
@@ -285,10 +288,25 @@ public final class ViewfinderView extends View
             paint.setAlpha(221);
             // paint.setTypeface(Typeface.create("System", Typeface.BOLD));
             paint.setTextAlign(Paint.Align.CENTER);//文字居中,X,Y 对应文字坐标中心
-            canvas.drawText(
-                    ShowText,
-                    width/2, frame.top - 80,
-                    paint);
+            if (!LangUtils.isChinese(ShowText)) {
+                // 英文提示语
+                String ShowTextTemp1 = ShowText.substring(0, 33);
+                String ShowTextTemp2 = ShowText.substring(33, ShowText.length());
+                canvas.drawText(
+                        ShowTextTemp1,
+                        width/2, frame.top - 100,
+                        paint);
+                canvas.drawText(
+                        ShowTextTemp2,
+                        width/2, frame.top - 40,
+                        paint);
+            } else {
+                canvas.drawText(
+                        ShowText,
+                        width/2, frame.top - 80,
+                        paint);
+            }
+
 
             Collection<ResultPoint> currentPossible = possibleResultPoints;
             Collection<ResultPoint> currentLast = lastPossibleResultPoints;
