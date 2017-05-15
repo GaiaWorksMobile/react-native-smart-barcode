@@ -27,6 +27,9 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
 import android.util.Log;
 import android.view.View;
 
@@ -223,7 +226,7 @@ public final class ViewfinderView extends View
                     - CORNER_WIDTH /2 - 5, frame.left + ScreenRate - 5, frame.top
                     + CORNER_WIDTH /2 - 5, paint);//左上角横线
             canvas.drawRect(frame.left - CORNER_WIDTH/2  - 5, frame.top
-                    - CORNER_WIDTH/2 - 5, frame.left + CORNER_WIDTH/2 - 5,
+                            - CORNER_WIDTH/2 - 5, frame.left + CORNER_WIDTH/2 - 5,
                     frame.top + ScreenRate - 5, paint);//左上角竖线
             canvas.drawRect(frame.left - CORNER_WIDTH/2 - 5, frame.bottom
                     - ScreenRate + 5, frame.left + CORNER_WIDTH/2 - 5, frame.bottom
@@ -233,15 +236,15 @@ public final class ViewfinderView extends View
                     + CORNER_WIDTH/2 + 5, paint);//左下角横线
             canvas.drawRect(frame.right - ScreenRate + 5, frame.top - CORNER_WIDTH/2 - 5
                     , frame.right + CORNER_WIDTH/2 + 5, frame.top
-                    + CORNER_WIDTH/2 - 5, paint);//右上横线
+                            + CORNER_WIDTH/2 - 5, paint);//右上横线
             canvas.drawRect(frame.right - CORNER_WIDTH / 2 + 5, frame.top
-                    - CORNER_WIDTH / 2 - 5, frame.right + CORNER_WIDTH / 2 + 5,
+                            - CORNER_WIDTH / 2 - 5, frame.right + CORNER_WIDTH / 2 + 5,
                     frame.top + ScreenRate - 5, paint);//右上竖线
             canvas.drawRect(frame.right - CORNER_WIDTH/2 + 5, frame.bottom
                     - ScreenRate + 5, frame.right + CORNER_WIDTH /2 + 5, frame.bottom
                     + CORNER_WIDTH /2 + 5, paint);//右下竖线
             canvas.drawRect(frame.right - ScreenRate + 5, frame.bottom
-                    - CORNER_WIDTH / 2 + 5, frame.right + CORNER_WIDTH / 2 + 5,
+                            - CORNER_WIDTH / 2 + 5, frame.right + CORNER_WIDTH / 2 + 5,
                     frame.bottom + CORNER_WIDTH / 2 + 5, paint);
 
             //画中间移动的线 (int)(SPEEN_DISTANCE*density+0.5f)
@@ -280,32 +283,38 @@ public final class ViewfinderView extends View
             paint.setTextAlign(Paint.Align.CENTER);//文字居中,X,Y 对应文字坐标中心
             canvas.drawText(
                     showFirstText,
-                    width/2, frame.top - 180,
+                    width/2, frame.top - 260,
                     paint);
-
-            paint.setColor(Color.WHITE);
-            paint.setTextSize(TEXT_SIZE * density);
-            paint.setAlpha(221);
+            int textWidth = width - 228;
+            int offsetY = frame.top - 180;
+            canvas.translate(114, offsetY);
+            TextPaint textPaint = new TextPaint();
+            textPaint.setColor(Color.WHITE);
+            textPaint.setTextSize(TEXT_SIZE * density);
+            textPaint.setAlpha(221);
             // paint.setTypeface(Typeface.create("System", Typeface.BOLD));
-            paint.setTextAlign(Paint.Align.CENTER);//文字居中,X,Y 对应文字坐标中心
-            if (!LangUtils.isChinese(ShowText)) {
-                // 英文提示语
-                String ShowTextTemp1 = ShowText.substring(0, 33);
-                String ShowTextTemp2 = ShowText.substring(33, ShowText.length());
-                canvas.drawText(
-                        ShowTextTemp1,
-                        width/2, frame.top - 100,
-                        paint);
-                canvas.drawText(
-                        ShowTextTemp2,
-                        width/2, frame.top - 40,
-                        paint);
-            } else {
-                canvas.drawText(
-                        ShowText,
-                        width/2, frame.top - 80,
-                        paint);
-            }
+            // textPaint.setTextAlign(Paint.Align.CENTER);//文字居中,X,Y 对应文字坐标中心
+            StaticLayout layout = new StaticLayout(ShowText,textPaint,textWidth, Layout.Alignment.ALIGN_CENTER,1.5F,0,false);
+            layout.draw(canvas);
+            canvas.restore();
+//            if (!LangUtils.isChinese(ShowText)) {
+//                // 英文提示语
+//                String ShowTextTemp1 = ShowText.substring(0, 33);
+//                String ShowTextTemp2 = ShowText.substring(33, ShowText.length());
+//                canvas.drawText(
+//                        ShowTextTemp1,
+//                        width/2, frame.top - 100,
+//                        paint);
+//                canvas.drawText(
+//                        ShowTextTemp2,
+//                        width/2, frame.top - 40,
+//                        paint);
+//            } else {
+//                canvas.drawText(
+//                        ShowText,
+//                        width/2, frame.top - 80,
+//                        paint);
+//            }
 
 
             Collection<ResultPoint> currentPossible = possibleResultPoints;
@@ -380,7 +389,7 @@ public final class ViewfinderView extends View
         int endA = startA/2;
 
 
-      return  ((startA + (endA - startA)) << 24)
+        return  ((startA + (endA - startA)) << 24)
                 | (startR << 16)
                 | (startG  << 8)
                 | (startB );

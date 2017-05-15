@@ -1,10 +1,18 @@
 [
     {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.5.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/raw/beep.wav",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.5.0/zskq/node_modules/react-native-smart-barcode/android/src/main/res/raw/beep.wav"
+    },
+    {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/raw/beep.wav",
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/zskq/node_modules/react-native-smart-barcode/android/src/main/res/raw/beep.wav"
     },
     {
         "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/raw/beep.wav",
         "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.4.0/zskq/node_modules/react-native-smart-barcode/android/src/main/res/raw/beep.wav"
+    },
+    {
+        "merged": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.5.0/zskq_350/node_modules/react-native-smart-barcode/android/build/intermediates/res/merged/release/raw/beep.wav",
+        "source": "/Users/arespan/programe/Projects/GaiaZSKQ/ZSKQv3.5.0/zskq_350/node_modules/react-native-smart-barcode/android/src/main/res/raw/beep.wav"
     }
 ]
