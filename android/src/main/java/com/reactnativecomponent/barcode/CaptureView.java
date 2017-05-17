@@ -172,16 +172,17 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
             mHandler = new Handler();
         }
         FrameLayout frameLayout = new FrameLayout(activity);
-        frameLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 80));
+        frameLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 160));
         LinearLayout linearLayout = new LinearLayout(activity);
-        linearLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 80));
+        linearLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 160));
         linearLayout.setOrientation(LinearLayout.HORIZONTAL);
         TextView tv = new TextView(activity);
-        tv.setLayoutParams(new ViewGroup.LayoutParams(18, 80));
+        tv.setLayoutParams(new ViewGroup.LayoutParams(18, 160));
         linearLayout.addView(tv);
         ImageView imageView = new ImageView(activity);
-        imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 80));
+        imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 160));
         imageView.setImageDrawable(getResources().getDrawable(R.drawable.back_white));
+        imageView.setPadding(40,0,0,0);
         imageView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,7 +191,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         });
         linearLayout.addView(imageView);
         TextView textView = new TextView(activity);
-        textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 80));
+        textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 160));
         textView.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
         textView.setText(title);
         textView.setTextColor(Color.WHITE);
