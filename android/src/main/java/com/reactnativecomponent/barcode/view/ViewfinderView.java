@@ -283,11 +283,11 @@ public final class ViewfinderView extends View
             paint.setTextAlign(Paint.Align.CENTER);//文字居中,X,Y 对应文字坐标中心
             canvas.drawText(
                     showFirstText,
-                    width/2, frame.top - 260,
+                    width/2, frame.top - 180,
                     paint);
-            int textWidth = width - 228;
-            int offsetY = frame.top - 180;
-            canvas.translate(114, offsetY);
+            int textWidth = width - 114;
+            int offsetY = frame.top - 140;
+            canvas.translate(57, offsetY);
             TextPaint textPaint = new TextPaint();
             textPaint.setColor(Color.WHITE);
             textPaint.setTextSize(TEXT_SIZE * density);
@@ -351,6 +351,11 @@ public final class ViewfinderView extends View
             postInvalidateDelayed(ANIMATION_DELAY, frame.left, frame.top,
                     frame.right, frame.bottom);
         }
+    }
+
+    public int getCameraTop() {
+        Rect frame = CameraManager.get().getFramingRect();
+        return frame.top;
     }
 
     public void drawViewfinder()

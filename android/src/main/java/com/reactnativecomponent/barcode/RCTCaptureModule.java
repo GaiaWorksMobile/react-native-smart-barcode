@@ -72,6 +72,11 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
         });
     }
 
+    @ReactMethod
+    public void getCameraTop(Callback callback) {
+        callback.invoke(captureManager.cap.getCameraTop());
+    }
+
 
 
     @ReactMethod

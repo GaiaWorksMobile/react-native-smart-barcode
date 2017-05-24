@@ -10,6 +10,7 @@ import android.content.res.AssetFileDescriptor;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.media.AudioManager;
@@ -17,6 +18,7 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.text.TextPaint;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.TextureView;
@@ -255,6 +257,11 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
            playBeep = false;
         }
         initBeepSound();
+    }
+
+    public int getCameraTop() {
+        Rect frame = CameraManager.get().getFramingRect();
+        return frame.top;
     }
 
 
@@ -510,6 +517,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         super.onWindowFocusChanged(hasWindowFocus);
 
         if (hasWindowFocus) {
+            stopScan();
             //对应onresume
             this.surfaceTexture = textureView.getSurfaceTexture();
             startScan();
@@ -711,18 +719,12 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
-//        Log.i("Test", "height:" + height + "width:" + width);
-
+        Log.e("Test", "height:" + height + "width:" + width);
+        stopScan();
         CameraManager.init(activity);
-
         initCameraManager();
-
         surfaceTexture = surface;
-
-
         textureView.setAlpha(1.0f);
-
-
         if (autoStart) {
             startScan();
         }
@@ -736,7 +738,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
     @Override
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
         stopScan();
-        return false;
+        return true;
     }
 
     @Override

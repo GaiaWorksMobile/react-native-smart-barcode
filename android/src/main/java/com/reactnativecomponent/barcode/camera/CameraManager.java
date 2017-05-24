@@ -23,7 +23,6 @@ import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Handler;
-import android.util.Log;
 import android.graphics.SurfaceTexture;
 
 import java.io.IOException;
@@ -211,7 +210,6 @@ private final Context context;
   public void requestAutoFocus(Handler handler, int message) {
     if (camera != null && previewing) {
       autoFocusCallback.setHandler(handler, message);
-      //Log.d(TAG, "Requesting auto-focus callback");
       camera.autoFocus(autoFocusCallback);
 
     }
@@ -307,6 +305,10 @@ private final Context context;
 
   public Camera getCamera() {
     return camera;
+  }
+
+  public boolean isPreviewing() {
+    return previewing;
   }
 
 }
