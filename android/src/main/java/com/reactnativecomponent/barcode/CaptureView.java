@@ -350,7 +350,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
             String str = obj.getText();//获得扫码的结果
             onEvChangeListener.getQRCodeResult(str,obj.getBarcodeFormat()); //观察者模式发送到RN侧
         }
-        stopQR();
+        stopScan();
     }
 
 
