@@ -296,6 +296,7 @@ public final class ViewfinderView extends View
             // textPaint.setTextAlign(Paint.Align.CENTER);//文字居中,X,Y 对应文字坐标中心
             StaticLayout layout = new StaticLayout(ShowText,textPaint,textWidth, Layout.Alignment.ALIGN_CENTER,1.5F,0,false);
             layout.draw(canvas);
+            canvas.save();
             canvas.restore();
 //            if (!LangUtils.isChinese(ShowText)) {
 //                // 英文提示语
