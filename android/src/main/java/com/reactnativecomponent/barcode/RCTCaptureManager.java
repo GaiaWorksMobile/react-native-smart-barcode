@@ -38,9 +38,9 @@ public class RCTCaptureManager extends ViewGroupManager<CaptureView> {
         Activity activity = context.getCurrentActivity();
         density = activity.getResources().getDisplayMetrics().density;
         cap = new CaptureView(activity, context);
-
         return cap;
     }
+
     @ReactProp(name = "barCodeTypes")
     public void setbarCodeTypes(CaptureView view, ReadableArray barCodeTypes) {
 
@@ -77,12 +77,12 @@ public class RCTCaptureManager extends ViewGroupManager<CaptureView> {
 
     @ReactProp(name = "scannerRectLeft", defaultInt = 0)
     public void setCX(CaptureView view, int cX) {
-        view.setcX((int) (cX* density + 0.5f));
+        view.setcX((int) (cX * density + 0.5f));
     }
 
     @ReactProp(name = "scannerRectTop", defaultInt = 0)
     public void setCY(CaptureView view, int cY) {
-        view.setcY((int)(cY* density + 0.5f));
+        view.setcY((int) (cY * density + 0.5f));
     }
 
     @ReactProp(name = "scannerRectWidth", defaultInt = 255)
@@ -132,7 +132,7 @@ public class RCTCaptureManager extends ViewGroupManager<CaptureView> {
                 public void run() {
                     int width = config.getInt("FRAME_WIDTH");
                     int height = config.getInt("FRAME_HEIGHT");
-                    cap.setCHANGE_WIDTH((int)(width* density + 0.5f), (int)(height* density + 0.5f));
+                    cap.setCHANGE_WIDTH((int) (width * density + 0.5f), (int) (height * density + 0.5f));
                 }
             });
         }
@@ -145,9 +145,9 @@ public class RCTCaptureManager extends ViewGroupManager<CaptureView> {
         view.setOnEvChangeListener(
                 new CaptureView.OnEvChangeListener() {
                     @Override
-                    public void getQRCodeResult(String result,BarcodeFormat format) {
+                    public void getQRCodeResult(String result, BarcodeFormat format) {
                         reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
-                                .dispatchEvent(new QRCodeResultEvent(view.getId(), SystemClock.nanoTime(), result,format));
+                                .dispatchEvent(new QRCodeResultEvent(view.getId(), SystemClock.nanoTime(), result, format));
                     }
 
                 });

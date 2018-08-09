@@ -1,7 +1,9 @@
 package com.reactnativecomponent.barcode;
 
+import android.Manifest;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.Callback;
@@ -10,9 +12,14 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.google.zxing.BarcodeFormat;
 import com.reactnativecomponent.barcode.decoding.DecodeUtil;
+import com.reactnativecomponent.barcode.utils.PermissionUtil;
+
+import java.io.File;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
 
 public class RCTCaptureModule extends ReactContextBaseJavaModule {
@@ -23,9 +30,7 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
     public RCTCaptureModule(ReactApplicationContext reactContext, RCTCaptureManager captureManager) {
         super(reactContext);
         mContext = reactContext;
-
         this.captureManager = captureManager;
-
     }
 
     @Override
@@ -40,7 +45,6 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
 //    }
 
 
-
     @Nullable
     @Override
     public Map<String, Object> getConstants() {
@@ -48,21 +52,22 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
             {
                 put("barCodeTypes", getBarCodeTypes());
             }
+
             private Map<String, Object> getBarCodeTypes() {
                 return Collections.unmodifiableMap(new HashMap<String, Object>() {
                     {
                         put("upce", BarcodeFormat.UPC_E.toString());
                         put("code39", BarcodeFormat.CODE_39.toString());
 //                        put("code39mod43",BarcodeFormat. );
-                        put("ean13",BarcodeFormat.EAN_13.toString() );
-                        put("ean8",BarcodeFormat.EAN_8.toString() );
+                        put("ean13", BarcodeFormat.EAN_13.toString());
+                        put("ean8", BarcodeFormat.EAN_8.toString());
                         put("code93", BarcodeFormat.CODE_93.toString());
                         put("code128", BarcodeFormat.CODE_128.toString());
-                        put("pdf417",BarcodeFormat.PDF_417.toString() );
-                        put("qr",BarcodeFormat.QR_CODE.toString() );
+                        put("pdf417", BarcodeFormat.PDF_417.toString());
+                        put("qr", BarcodeFormat.QR_CODE.toString());
                         put("aztec", BarcodeFormat.AZTEC.toString());
 //                        put("interleaved2of5", BarcodeFormat.);
-                        put("itf14",BarcodeFormat.ITF.toString());
+                        put("itf14", BarcodeFormat.ITF.toString());
                         put("datamatrix", BarcodeFormat.DATA_MATRIX.toString());
                     }
 
@@ -78,19 +83,25 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
     }
 
 
-
     @ReactMethod
     public void startSession() {
-
-        if (captureManager.cap != null) {
-            getCurrentActivity().runOnUiThread(new Runnable() {
-                public void run() {
-                    captureManager.cap.startQR();
-//                    captureManager.cap.startScan();
-//                    Toast.makeText(getCurrentActivity(), "startScan", Toast.LENGTH_SHORT).show();
+        PermissionUtil.permissionsCheck(mContext.getCurrentActivity(), null, Arrays.asList(Manifest.permission.CAMERA), new Callable<Void>() {
+            @Override
+            public Void call() throws Exception {
+                try {
+                    if (captureManager.cap != null) {
+                        getCurrentActivity().runOnUiThread(new Runnable() {
+                            public void run() {
+                                captureManager.cap.startQR();
+                            }
+                        });
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
-            });
-        }
+                return null;
+            }
+        });
     }
 
 
@@ -133,25 +144,25 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void DecodeFromPath(final String path,
-                              final Callback errorCallback,
+                               final Callback errorCallback,
                                final Callback successCallback) {
 
-            new Thread(new Runnable() {
-                public void run() {
-                    try {
+        new Thread(new Runnable() {
+            public void run() {
+                try {
                     String s = Environment.getExternalStorageDirectory()
                             .getAbsolutePath() + "/" + "IMG_20161011_170552.jpg";
                     //不加这个分号则不能自动添加代码
 
                     String ResultStr = DecodeUtil.getStringFromQRCode(s);
-                        successCallback.invoke(ResultStr);
+                    successCallback.invoke(ResultStr);
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        errorCallback.invoke(e.getMessage());
-                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    errorCallback.invoke(e.getMessage());
                 }
-            }).start();
+            }
+        }).start();
 //        Toast.makeText(getCurrentActivity(), "DecodeFromPath:"+path, Toast.LENGTH_SHORT).show();
 
     }
