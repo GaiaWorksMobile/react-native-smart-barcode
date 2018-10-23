@@ -1,5 +1,6 @@
 package com.reactnativecomponent.barcode;
 
+import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -37,10 +38,12 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.reactnativecomponent.barcode.camera.CameraManager;
 import com.reactnativecomponent.barcode.decoding.CaptureActivityHandler;
+import com.reactnativecomponent.barcode.utils.PermissionUtil;
 import com.reactnativecomponent.barcode.view.LinearGradientView;
 import com.reactnativecomponent.barcode.view.ViewfinderView;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -126,6 +129,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
 
         hasSurface = false;
         this.setOnTouchListener(new TouchListener());
+//        PermissionUtil.permissionsCheck(activity, null, Arrays.asList(Manifest.permission.CAMERA), null);
     }
 
 
@@ -247,7 +251,7 @@ public class CaptureView extends FrameLayout implements TextureView.SurfaceTextu
         int maxZoom = getMaxZoom();
         if (maxZoom > 0) {
         }
-
+        PermissionUtil.permissionsCheck(activity, null, Arrays.asList(Manifest.permission.CAMERA), null);
     }
 
     public void setPlayBeep(boolean b) {

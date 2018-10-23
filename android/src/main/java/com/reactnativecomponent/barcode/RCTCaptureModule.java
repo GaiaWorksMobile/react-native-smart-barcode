@@ -85,9 +85,9 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void startSession() {
-        PermissionUtil.permissionsCheck(mContext.getCurrentActivity(), null, Arrays.asList(Manifest.permission.CAMERA), new Callable<Void>() {
-            @Override
-            public Void call() throws Exception {
+//        PermissionUtil.permissionsCheck(mContext.getCurrentActivity(), null, Arrays.asList(Manifest.permission.CAMERA), new Callable<Void>() {
+//            @Override
+//            public Void call() throws Exception {
                 try {
                     if (captureManager.cap != null) {
                         getCurrentActivity().runOnUiThread(new Runnable() {
@@ -99,10 +99,11 @@ public class RCTCaptureModule extends ReactContextBaseJavaModule {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                return null;
-            }
-        });
+//                return null;
+//            }
+//        });
     }
+
 
 
     @ReactMethod
